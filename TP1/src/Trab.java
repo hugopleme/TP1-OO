@@ -18,6 +18,16 @@ public class Trab {
 		String endereco[]= new String[50];
 		String celular[] = new String[50];
 		
+		String preNome[] = {"hugo", "roberta", "caio", "alvaro", "rafael", "paulo", "joao", "lincoln", "cauan", "guilherme"};
+		String preEnd[] = {"arniqueira", "aguas claras", "gama", "taguatinga", "park way", "guará", "sao paulo", "rio de janeiro", "santos", "taubaté"};
+		String preCelular[] = {"12457845", "12131546", "45789513", "45795613", "31649745", "35164875", "46487513", "79784512", "94675213", "46794512"};
+		
+		for (int i=0;i<10;i++) {
+			nome[i] = preNome[i];
+			endereco[i] = preEnd[i];
+			celular[i] = preCelular[i];
+		}
+		
 		String nomeBusca;
 		String prodBusca;
 		
@@ -29,10 +39,25 @@ public class Trab {
 		float compra[] = new float[50];
 		float lucro[] = new float[50];
 		int estoque[] = new int[50];
+		
+		String preProd[] = {"jogo", "livro", "celular", "teclado", "mouse", "placa mãe", "placa de vídeo", "processador", "memória ram", "monitor"};
+		String preDescr[] = {"jogo digital", "livros de categoria", "telefones móveis", "dispositivo de entrada", "mouse gamer RGB", "placas de socket AM4", "GPU's especiais", "processamento de informaçoes", "memórias DDR4", "monitor 144Hz"};
+		float preCompra[] = {59,99, 20, 400,99, 120,03, 59,67, 720, 2099,99, 1400, 1679, 432,99, 1287,67};
+		float preLucro[] = {2,1, 10,9, 15, 20, 16, 76, 12, 46, 89, 20};
+		int preEstoque[] = {100, 500, 610, 497, 452, 113, 20, 467, 985, 300};
+		
+		for (int i = 0; i<10;i++) {
+			nomeProd[i] = preProd[i];
+			descricao[i] = preDescr[i];
+			compra[i] = preCompra[i];
+			lucro[i] = preLucro[i];
+			estoque[i] = preEstoque[i];
+		}
+		
 		int vendas;
 		int numClientes, numProd;
-		int fimVetorClientes = 0;
-		int fimVetorProdutos = 0;
+		int fimVetorClientes = 10;
+		int fimVetorProdutos = 10;
 		int contador = 0;
 		
 		while (opcao!=7) {
@@ -48,11 +73,11 @@ public class Trab {
 			opcao = ler.nextInt();
 			
 		if (opcao ==1) {
+			System.out.print("CADASTRE TUDO EM MINÚSCULO\n");
 			System.out.print("Quantos clientes serão cadastrados?\n");
 			numClientes = ler.nextInt();
 			clearBuffer(ler);
-			System.out.print("CADASTRE TUDO EM MINÚSCULO\n");
-			
+
 			while (contador<numClientes) {
 				System.out.print("Nome do " + (contador+1) + "º cliente: ");
 				nome[fimVetorClientes] = ler.nextLine();
@@ -67,7 +92,7 @@ public class Trab {
 			
 		}else if (opcao ==2) {
 			clearBuffer(ler);
-			System.out.print("Nome do cliente a ser buscado:\nDIGITE EM MINUSCULO");
+			System.out.print("DIGITE EM MINUSCULO\nNome do cliente a ser buscado:\n");
 			nomeBusca =ler.nextLine();
 			int altDados;
 			int validador = 0;
@@ -105,9 +130,9 @@ public class Trab {
 			contador =0;
 			
 		}else if (opcao ==3) {
+			System.out.print("CADASTRE TUDO EM MINÚSCULO\n");
 			System.out.print("Quantos produtos serão cadastrados?\n");
 			numProd = ler.nextInt();
-			System.out.print("CADASTRE TUDO EM MINÚSCULO\n");
 
 			while (contador<numProd) {
 				clearBuffer(ler);
@@ -128,7 +153,7 @@ public class Trab {
 			
 		}else if (opcao ==4) {
 			clearBuffer(ler);
-			System.out.print("Nome do produto a ser buscado:\nDIGITE EM MINUSCULO\n");
+			System.out.print("DIGITE EM MINUSCULO\nNome do produto a ser buscado:\n");
 			prodBusca =ler.nextLine();
 			int altDados;
 			int validador = 0;
@@ -213,8 +238,8 @@ public class Trab {
 				}else {
 					estoque[vetorCadastro] -= vendas;
 				}
-				System.out.print("Deseja cadastrar mais uma venda? \n");
 				System.out.print("As vendas de " + nomeCadasProd + " foram cadastradas com sucesso para o cliente: " + nomeCadas +"\n");
+				System.out.print("Deseja cadastrar mais uma venda? \n");
 				System.out.print("[1 - SIM / 2 - NÃO\n");
 				validador= ler.nextInt();
 				clearBuffer(ler);
@@ -228,6 +253,8 @@ public class Trab {
 				System.out.print(nomeProd[contador] + " - " + estoque[contador] + "\n");
 				contador++;
 			}
+			
+			System.out.print("\n");
 			contador=0;
 		}else if (opcao ==7) {
 			System.out.print("SAINDO...\n");
